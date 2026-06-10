@@ -3,9 +3,9 @@
 // Never commit real DB passwords to a public repository.
 
 return [
-    'host' => '1.1.2.10',
-    'user' => 'user',
-    'pass' => '1111',
+    'host' => 'DB_SERVER_IP',
+    'user' => 'DB_USER',
+    'pass' => 'CHANGE_ME',
     'name' => 'care',
     'port' => 3306,
 ];

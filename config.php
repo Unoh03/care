@@ -3,11 +3,11 @@
 // Do not put real production secrets here.
 
 $CARE_DB = [
-    'host' => '1.1.2.10',
-    'user' => 'user',
-    'pass' => '1111',
-    'name' => 'care',
-    'port' => 3306,
+    'host' => '1',
+    'user' => 'u',
+    'pass' => '1',
+    'name' => 'c',
+    'port' => 1,
 ];
 
 $localConfig = __DIR__ . '/config.local.php';
