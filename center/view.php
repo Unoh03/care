@@ -4,7 +4,8 @@
     $num = $_GET['num'];
     
     // 데이터 베이스에 연결
-    $link = mysqli_connect("localhost", "care", "123123", "care") or die('연결 실패');
+    require_once __DIR__ . '/../config.php';
+	$link = care_db_connect() or die('연결 실패');
     
     // SELECT 쿼리문 문자열 변수에 저장.
     $query = "SELECT * FROM center WHERE num='$num'";

@@ -1,7 +1,8 @@
 <?php
 
 include "../header.php";
-$link = mysqli_connect('localhost', 'care', '123123', 'care');
+require_once __DIR__ . '/../config.php';
+$link = care_db_connect();
 $mode = $_GET['mode'];
 $find = $_GET['find'];
 $data = $_GET['data'];

@@ -26,7 +26,8 @@ if($pw != $pwCheck){
 }
 
 // 데이터 베이스 연결 (데이터베이스 아이피주소, 데이터베이스 계정명, 패스워드, 데이터베이스 이름)
-$link = mysqli_connect("localhost", "care", "123123", "care") or die('연결 실패');
+require_once __DIR__ . '/../config.php';
+$link = care_db_connect() or die('연결 실패');
 
 // 업데이트 쿼리문 문자열 변수에 저장.
 $query = "UPDATE member SET pw='$pw', name='$name', mobile='$mobile', 

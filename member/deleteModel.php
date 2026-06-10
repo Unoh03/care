@@ -23,7 +23,8 @@ if($pw != $pwCheck){
 }
 
 // 데이터 베이스에 연결
-$link = mysqli_connect("localhost", "care", "123123", "care") or die('연결 실패');
+require_once __DIR__ . '/../config.php';
+$link = care_db_connect() or die('연결 실패');
 
 // 데이터베이스에 저장된 패스워드와 사용자가 입력한 패스워드를 같은지 확인.
 $query = "SELECT pw FROM member WHERE id='$id'";
