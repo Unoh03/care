@@ -1,0 +1,71 @@
+kyes@ubuntu:~/workspace$ sudo mysql -ucare -p
+
+[sudo] kyes의 암호: 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| care               |
++--------------------+
+2 rows in set (0.01 sec)
+
+mysql> use care;
+Database changed
+
+mysql> CREATE TABLE member( 
+num int unsigned not null auto_increment, 
+id varchar(50) not null, 
+pw varchar(50) not null, 
+name varchar(50) not null, 
+mobile varchar(20), 
+address varchar(50), 
+email varchar(50), 
+date varchar(30), 
+primary key(num, id) 
+);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> INSERT INTO member(id, pw, name, mobile, address, email, date)  
+VALUES('admin', '123123', 'administrator', '010-1234-1234', 'seoul', 'admin@care.com', '2022-03-13');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM member WHERE id='admin';
++-----+-------+--------+---------------+---------------+---------+----------------+------------+
+| num | id    | pw     | name          | mobile        | address | email          | date       |
++-----+-------+--------+---------------+---------------+---------+----------------+------------+
+|   1 | admin | 123123 | administrator | 010-1234-1234 | seoul   | admin@care.com | 2022-03-13 |
++-----+-------+--------+---------------+---------------+---------+----------------+------------+
+1 row in set (0.01 sec)
+
+mysql>SELECT * FROM member WHERE id='aaa';
+Empty set (0.00 sec)
+
+mysql>  ALTER TABLE member convert to charset utf8;
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql>  ALTER DATABASE care DEFAULT CHARACTER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO member(id, pw, name, mobile, address, email, date)  
+VALUES('user1', '1111', '유저일', '010-1111-1111', '서울시 종로구', 'user1@care.com', '2022-03-13');
+
+mysql>SELECT * FROM member WHERE id='user1';
+
+
+
+
+
+
+
+
+
+
+
+
+
+

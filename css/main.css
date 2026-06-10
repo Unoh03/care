@@ -1,0 +1,177 @@
+body {
+	background-color: #E7E7E7;
+	margin: 0;
+	padding: 0;
+}
+
+#wrap {
+	background-image: url(/images/shadow.png);
+	width: 1000px;
+	height: 1200px;
+	background-repeat: repeat-y;
+	margin: auto;
+}
+
+header {
+	/* border: 1px solid; */
+	width: 950px;
+	height: 250px;
+	margin-left: 10px;
+}
+
+.login {
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.login a {
+	color: black;
+}
+
+.login a:hover {
+	color: orange;
+}
+
+.logo a {
+	color: orange;
+}
+
+.logo a:hover {
+	color: black;
+}
+
+.logo {
+	margin-top: 50px;
+	margin-left: 50px;
+	float: left;
+}
+
+ul {
+	list-style: none;
+}
+
+#nav_index {
+	/* border: 1px solid; */
+	width: 600px;
+	float: left;
+	margin-top: 150px;
+	margin-left: 50px;
+}
+
+#nav_index ul {
+	font-size: 18px;
+}
+
+#nav_index ul li {
+	float: left;
+	margin: 0 20px;
+}
+
+#nav_index ul li a {
+	color: black;
+}
+
+#nav_index ul li a:hover {
+	color: orange;
+}
+
+#article_index {
+	margin-left: 10px;
+	width: 950px;
+}
+
+#security {
+	background: #E1E1E1;
+	margin: 20px;
+	height: 210px;
+}
+
+.solution {
+	background-image: url(/images/icon1.png);
+}
+
+.control {
+	background-image: url(/images/icon2.png);
+}
+
+.consulting {
+	background-image: url(/images/icon3.png);
+}
+
+.solution, .control, .consulting {
+	background-repeat: no-repeat;
+	width: 30%;
+	float: left;
+	margin: 15px;
+}
+
+.solution h3, .control h3, .consulting h3 {
+	margin-left: 90px;
+}
+
+.solution p, .control p, .consulting p {
+	margin-top: 25px;
+	padding: 10px;
+}
+
+.clear {
+	clear: both
+}
+
+#news, #notices {
+	width: 40%;
+	float: left;
+	height: 150px;
+	margin: 20px;
+}
+
+#news {
+	margin-left: 80px;
+}
+
+#news h3, #notices h3 {
+	background-image: url(/images/h3_back.jpg);
+	background-repeat: no-repeat;
+	font-size: 13px;
+	font-style: italic;
+	padding-left: 25px;
+	padding-top: 5px;
+	height: 30px;
+}
+
+.notice_title {
+	background-image: url(/images/tr_back.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+#notices table {
+	width: 380px;
+}
+
+#notices table td {
+	padding: 5px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+}
+
+footer {
+	width: 950px;
+	margin-left: 10px;
+}
+
+#copyright {
+	font-size: 12px;
+	float: left;
+	margin: 10px 30px;
+}
+
+#social {
+	float: right;
+	margin-right: 20px;
+}

@@ -1,0 +1,196 @@
+﻿/* register.php */
+#img_mem
+{
+	background-image: url(/images/member/sub_back.png);
+	width: 970px;
+	height: 180px;
+}
+#nav_sub
+{
+	width: 200px;
+	height: 200px;
+	margin-left: 10px;
+	float: left;
+}
+#nav_sub ul{ font-size: 18px; }
+#nav_sub ul li a
+{
+	color: #333;
+	display: block;
+	width: 150px;
+	height: 30px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	padding: 5px;
+	background-image: url(/images/company/h_bullet.gif);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+#nav_sub ul li a:hover
+{
+	color: #f90;
+	background-image: url(/images/bullet_orange.gif);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+#article_sub{
+	width: 650px;
+	float: left;
+	margin-left: 60px;
+}
+#article_sub figure { float: right; }
+#article_sub figure figcaption { font-size: 14px; margin-left: 37px;}
+#article_sub p { line-height: 1.9em; } 
+
+#article_sub .fieldset_mem
+{
+	width: 550px;
+	padding-left: 50px;
+	margin: 20px;
+}
+#article_sub .fieldset_mem legend{ font-size: 18px; }
+#article_sub .fieldset_mem label { float: left; width: 200px; margin: 5px;}
+#article_sub .fieldset_mem input 
+{ 
+	width: 200px; margin: 5px;
+	background-color: #D4F4FA;
+}
+#buttons_mem
+{
+	width: 550px;
+	margin: 20px;
+	padding-left: 60px;
+}
+#buttons_mem .submit_mem, #buttons_mem .cancel_mem
+{
+	font-size: 16px;
+	color: #fff;
+	border: 1px solid;
+	width: 200px;
+	height: 40px;
+}
+#buttons_mem .submit_mem
+{
+	background-image: url(/images/member/submit_back.jpg);
+}
+#buttons_mem .cancel_mem
+{
+	background-image: url(/images/member/cancel_back.jpg);
+}
+
+/* login.php */
+#form_login
+{
+	width: 550px;
+	margin: 20px;	
+}
+#form_login label 
+{ 
+	font-size: 18px;
+	float: left; 
+	width: 200px; 
+	margin: 5px; 
+	padding-left: 80px;
+}
+#form_login input 
+{ 
+	width: 200px; margin: 5px;
+	background-color: #D4F4FA;
+}
+
+/*list.php*/
+#img_cen
+{
+	background-image: url(/images/center/sub_back.png);
+	width: 970px;
+	height: 180px;
+}
+#table_list {	width: 640px; }
+#table_list th 
+{
+	background-image: url(/images/center/t_back.jpg);
+	color: #fff;
+	padding: 5px;
+}
+#table_list .title { width: 300px;}
+#table_list td 
+{
+	text-align : center;
+	border-bottom: 1px dotted;
+	padding: 5px;
+}
+.subject a { color: #333; }
+.subject a:hover { color: #f90; }
+
+#form_list
+{ 
+	float: right;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+#form_list select, #form_list input { height: 25px;}
+
+#page_control { text-align : center; }
+#page_control a { color: #333;}
+#page_control a:hover { color: #f90;}
+
+#buttons{ float: right; margin-right: 10px; }
+
+
+
+/* view.php */
+#view_title .title1
+{ 
+	float: left;
+	width: 60%;
+	text-align: center;
+}
+#view_title 
+{
+	width: 98%;
+	background-color : #eee;
+	border: 1px solid;
+	height: 40px;
+	line-height: 40px;
+	font-weight: bold;
+}
+#view_content
+{
+	width: 98%;
+	border: 1px solid;
+	height: 300px;
+}
+#view_file { margin-top: 10px; }
+#view_file a { color: #333;}
+#view_file a:hover{ color: #f90;}
+
+
+
+/*write.php*/
+
+.td1
+{
+	width : 100px;
+	text-align : center;
+	background-color : #eee;
+	height : 25px;
+}
+.td2
+{
+	float: left;
+	width: 530px;
+	height : 25px;
+}
+.td2 input
+{
+	border: 1px solid #B2CCFF;
+	width : 100%;
+	height : 25px;
+}
+.line { 	border-bottom : 1px solid #ccc; 	width: 98%; }
+#write_tr1 .td2 { text-align : center; }
+#write_tr3 .td1 { height : 200px; }
+#write_tr3 textarea {	height : 200px;	width: 100%; }
+
+
