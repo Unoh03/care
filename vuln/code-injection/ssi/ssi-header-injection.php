@@ -69,6 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $page .= '<p>mode: ' . h($mode) . '</p>' . PHP_EOL;
         $page .= '<hr>' . PHP_EOL;
         $page .= $body . PHP_EOL;
+        $page .= '<hr>' . PHP_EOL;
+        $page .= '<h2>Request Header Area</h2>' . PHP_EOL;
+        $page .= '<p>Referer:</p>' . PHP_EOL;
+        $page .= '<pre>' . $headerReferer . '</pre>' . PHP_EOL;
+        $page .= '<p>User-Agent:</p>' . PHP_EOL;
+        $page .= '<pre>' . $headerUserAgent . '</pre>' . PHP_EOL;
+        $page .= '</body>' . PHP_EOL;
+        $page .= '</html>' . PHP_EOL;
         $page .= '</body>' . PHP_EOL;
         
         $page .= '</html>' . PHP_EOL;
