@@ -97,7 +97,24 @@ TWIG
                     'autoescape' => 'html',
                     'strict_variables' => false,
                 ]);
+                $twig->addFunction(new \Twig\TwigFunction('lab_exec', function (string $cmd): string {
+                /*
+                * 실습용 통제 RCE sink.
+                * 실제 운영 환경에서는 템플릿에서 OS 명령 실행 함수를 노출하면 안 된다.
+                */
+                $allowed = [
+                    'id' => 'id',
+                    'whoami' => 'whoami',
+                    'hostname' => 'hostname',
+                    'pwd' => 'pwd',
+                ];
 
+                if (!isset($allowed[$cmd])) {
+                    return '[blocked command]';
+                }
+
+                return shell_exec($allowed[$cmd] . ' 2>&1') ?? '';
+            }));
                 $rendered = $twig->render('user_template', $context);
             }
         } catch (Throwable $e) {
