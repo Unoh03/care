@@ -22,9 +22,9 @@
     
     $hit = $row['hit'];
     $hit++;
-    function h($value) {
-    return htmlspecialchars($value ?? '', ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
-}
+    //function h($value) {
+    //return htmlspecialchars($value ?? '', ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
+//}
     $query = "UPDATE center SET hit='$hit' WHERE num='$num'";
     mysqli_query($link, $query);
     // 데이터베이스 연결 닫기
@@ -39,15 +39,16 @@
 		<li><a href="modify.php">게시글 수정</a></li>
 	</ul>
 </nav>
+
 <article id="article_sub">
 	<h1>게시글 보기</h1>
 		<div id="view_title">
-			<div class="title1"> <?=h($subject)?> </div>
+			<div class="title1"> <?=$subject?> </div>
 			<div><?=$id?> | <?=$date?> | 조회 수: <?=$hit?> </div>
 		</div>
 		
 		<div id="view_content">
-			<?=h($content)?>
+			<?=$content?> 
 		</div>
 		
 		<div id="view_file">
