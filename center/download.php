@@ -70,7 +70,7 @@
     readfile($filePath);
     exit;
     
-    
+    // 취약 원본 코드 블록
     // $filename = $_GET['filename'];
     // header("content-disposition: attachment; filename = " . $filename);
     
