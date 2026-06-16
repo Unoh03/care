@@ -15,7 +15,7 @@ $address = $_POST['address'];
 $email= $_POST['email'];
 // [10. 불충분한 인증 절차 방어 코드 - 취약 상태 캡처 전까지 주석 유지]
 // modify.php의 현재 비밀번호 입력칸을 주석 해제한 뒤 함께 사용한다.
-// $currentPw = $_POST['currentPw'] ?? '';
+$currentPw = $_POST['currentPw'] ?? '';
 
 // 입력 값이 빈 데이터가 있는 지 검증.
 if( ! ($pw and $pwCheck and $name)){
@@ -47,7 +47,7 @@ $link = care_db_connect() or die('연결 실패');
  * 2. 이 블록과 위쪽 $currentPw 대입 라인의 주석을 해제한다.
  * 3. 회원정보 수정 전 현재 비밀번호가 DB의 기존 비밀번호와 일치하는지 서버에서 확인한다.
  */
-/*
+
 if($currentPw == ''){
     echo "<script>alert('현재 비밀번호를 입력하세요'); history.go(-1); </script>";
     mysqli_close($link);
@@ -63,7 +63,7 @@ if(! $reauthRow || $currentPw != $reauthRow['pw']){
     mysqli_close($link);
     exit;
 }
-*/
+
 
 // 업데이트 쿼리문 문자열 변수에 저장.
 $query = "UPDATE member SET pw='$pw', name='$name', mobile='$mobile', 

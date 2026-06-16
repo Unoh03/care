@@ -22,13 +22,13 @@ if($_SESSION['id'] == ""){
 		var name = document.getElementById('name');
 		// [10. 불충분한 인증 절차 방어 코드 - 취약 상태 캡처 전까지 주석 유지]
 		// 중요 정보 수정 전 현재 비밀번호를 다시 입력받아 서버에서 재확인한다.
-		// var currentPw = document.getElementById('currentPw');
-		// if(currentPw.value == "" ){
-		// 	alert('현재 비밀번호를 입력하세요');
-		// 	currentPw.focus();
-		// 	return;
-		// }
-		
+		var currentPw = document.getElementById('currentPw');
+		if(currentPw.value == "" ){
+			alert('현재 비밀번호를 입력하세요');
+			currentPw.focus();
+			return;
+			}
+			
 		if(pw.value == "" ){
 			alert('비밀번호를 입력하세요');
 			pw.focus();
@@ -57,10 +57,10 @@ if($_SESSION['id'] == ""){
 			<!--
 			[10. 불충분한 인증 절차 방어 코드 - 취약 상태 캡처 전까지 주석 유지]
 			PDF 조치 기준: 개인정보 변경 같은 중요 페이지는 추가 인증 절차를 두고 서버 사이드에서 인증 여부를 검증한다.
-			조치 적용 시 아래 현재 비밀번호 입력칸과 상단 JavaScript 검사를 함께 주석 해제한다.
+			조치 적용 시 아래 현재 비밀번호 입력칸과 상단 JavaScript 검사를 함께 주석 해제한다.-->
 			<label>현재 비밀번호</label><input type="password" name="currentPw" id="currentPw">
 			<div class="clear"></div>
-			-->
+			
 			<label>패스워드</label><input type="password" name="pw" id="pw" >
 			<div class="clear"></div>
 			<label>패스워드 확인</label><input type="password" name="pwCheck" id="pwCheck">
