@@ -9,7 +9,7 @@ $date = date('Y-m-d');
 $subject = $_POST['subject'];
 $content = $_POST['content'];
 // 파일 업로드를 하게 되면 form 태그 속성에 enctype="multipart/form-data"를 지정, 그럼 $_FILES 에 파일 이름 존재함.
-//$upfile = $_POST['upfile'];
+$upfile = $_POST['upfile'];
 
 /*
  * [14. 악성 파일 업로드 방어 코드 1~3 - 취약 상태 캡처 전까지 주석 유지]
@@ -29,7 +29,7 @@ $content = $_POST['content'];
  * 2. 이 방어 블록 주석을 해제한다.
  * 3. 하단 move_uploaded_file() 부분의 방어 블록도 함께 주석 해제한다.
  */
-/*
+
 $upfile = '';
 $tmp_file = '';
 
@@ -86,7 +86,7 @@ if($uploadError !== UPLOAD_ERR_NO_FILE){
     // PDF 조치 3: 서버 저장 파일명 난수화
     $upfile = bin2hex(random_bytes(16)) . '.' . $extension;
 }
-*/
+
 
 $upfile = $_FILES['upfile']['name'];
 $tmp_file = $_FILES['upfile']['tmp_name'];
@@ -115,7 +115,7 @@ if(is_uploaded_file($tmp_file)){
      * 위쪽 방어 블록으로 검증과 난수 파일명 생성이 끝났다는 전제에서 사용한다.
      * realpath()로 업로드 디렉터리를 고정하고, 최종 저장 경로가 해당 디렉터리 밖으로 벗어나지 않게 한다.
      */
-    /*
+
     // PDF 조치 1/3: 업로드 디렉터리 고정 후 난수 파일명으로 저장
     $uploadDir = realpath(__DIR__ . '/../data');
     if($uploadDir === false){
@@ -128,31 +128,27 @@ if(is_uploaded_file($tmp_file)){
         echo "<script>alert('파일 저장에 실패했습니다.'); history.go(-1); </script>";
         exit;
     }
-    */
+
 
     $destination = "../data/" . $upfile;
     move_uploaded_file($tmp_file, $destination);
 }
 
 /*
- * [14. 악성 파일 업로드 방어 코드 4 - 취약 상태 캡처 전까지 주석 유지]
- *
- * 노트 대응:
- * - 웹 취약점 14번 노트 `PDF 조치 4`: 업로드 디렉터리 실행 권한 제한
- *
- * PDF 조치 기준:
- * 4. 업로드 디렉터리에서 서버 사이드 스크립트가 실행되지 않도록 실행 권한을 제한한다.
- *
- * Apache에서 조치할 경우 /data/.htaccess 또는 VirtualHost/Directory 설정에 아래와 같은 방어를 둔다.
- * 실제 취약 상태 캡처 전에는 적용하지 않는다.
- *
- * # PDF 조치 4: 업로드 디렉터리에서 PHP 계열 스크립트 실행 차단
- * <FilesMatch "\.(php|phtml|phar|php[0-9]?)$">
- *     Require all denied
- * </FilesMatch>
- * RemoveHandler .php .phtml .phar .php3 .php4 .php5 .php7 .php8
- * RemoveType .php .phtml .phar .php3 .php4 .php5 .php7 .php8
- * php_flag engine off
+[14. 악성 파일 업로드 방어 코드 4 - 취약 상태 캡처 전까지 주석 유지]
+노트 대응:
+- 웹 취약점 14번 노트 `PDF 조치 4`: 업로드 디렉터리 실행 권한 제한
+PDF 조치 기준:
+4. 업로드 디렉터리에서 서버 사이드 스크립트가 실행되지 않도록 실행 권한을 제한한다.
+Apache에서 조치할 경우 /data/.htaccess 또는 VirtualHost/Directory 설정에 아래와 같은 방어를 둔다.
+실제 취약 상태 캡처 전에는 적용하지 않는다.
+# PDF 조치 4: 업로드 디렉터리에서 PHP 계열 스크립트 실행 차단
+<FilesMatch "\.(php|phtml|phar|php[0-9]?)$">
+    Require all denied
+</FilesMatch>
+RemoveHandler .php .phtml .phar .php3 .php4 .php5 .php7 .php8
+RemoveType .php .phtml .phar .php3 .php4 .php5 .php7 .php8
+php_flag engine off
  */
 
 ?>
