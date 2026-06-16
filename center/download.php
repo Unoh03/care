@@ -21,7 +21,7 @@
      * 2. 이 방어 블록의 주석을 해제한다.
      * 3. 정상 첨부파일 다운로드는 유지되고, filename=../fd-proof.txt 같은 경로 이탈 요청은 차단되는지 확인한다.
      */
-    /*
+    
     $requested = $_GET['filename'] ?? '';
 
     if($requested === '' || preg_match('/[\/\\\\%\\x00]/', $requested) || strpos($requested, '..') !== false){
@@ -69,13 +69,13 @@
 
     readfile($filePath);
     exit;
-    */
     
-    $filename = $_GET['filename'];
-    header("content-disposition: attachment; filename = " . $filename);
     
-    $filename = "../data/" . $filename;
-    $handle = fopen($filename, "r");
-    fpassthru($handle);
-    fclose($handle);
+    // $filename = $_GET['filename'];
+    // header("content-disposition: attachment; filename = " . $filename);
+    
+    // $filename = "../data/" . $filename;
+    // $handle = fopen($filename, "r");
+    // fpassthru($handle);
+    // fclose($handle);
 ?>
