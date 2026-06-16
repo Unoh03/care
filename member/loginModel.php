@@ -24,6 +24,9 @@ $num = mysqli_num_rows($result);
 session_start();
 
 if($num == 1){
+    // 웹 취약점 16번 PDF 조치 1: 새 로그인 시 기존 세션 ID를 폐기하고 새로운 세션 ID를 발급한다.
+    session_regenerate_id(true);
+
     // 로그인 성공
     $_SESSION['id'] = $id;
     // SELECT 명령 후 결과 값을 반환.
@@ -33,6 +36,8 @@ if($num == 1){
     $_SESSION['address'] = $row['address'];
     $_SESSION['email'] = $row['email'];
     $_SESSION['num'] = $row['num'];
+    // 웹 취약점 16번 PDF 조치 2: 세션 만료 판단을 위해 마지막 활동 시간을 기록한다.
+    $_SESSION['last_activity'] = time();
     
 }else{
     // 로그인 실패
@@ -51,7 +56,6 @@ mysqli_close($link);
 	alert('로그인 성공');
 	location.href='/index.php';
 </script>
-
 
 
 
