@@ -2,7 +2,7 @@
 // 웹 취약점 16번 PDF 조치 2: 세션 종료 시간 설정 및 자동 로그아웃 구현.
 session_start();
 
-$sessionTimeout = 600; // 실습용 10분
+$sessionTimeout = 300; // 실습용 5분
 
 if (!empty($_SESSION['id'])) {
     if (isset($_SESSION['last_activity']) && time() - $_SESSION['last_activity'] > $sessionTimeout) {
