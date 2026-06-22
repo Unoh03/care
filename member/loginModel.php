@@ -12,10 +12,17 @@ $pw = $_POST['pw'];
 require_once __DIR__ . '/../config.php';
 $link = care_db_connect() or die('연결 실패');
 
-$query = "SELECT * FROM member WHERE id='$id' and pw='$pw'";
+// 취약 $query = "SELECT * FROM member WHERE id='$id' and pw='$pw'";
+$query = "SELECT * FROM member WHERE id = ? AND pw = ?";
+
+// Prepared Statement를 사용하여 SQL Injection 방지
+$stmt = mysqli_prepare($link, $query);
+mysqli_stmt_bind_param($stmt, "ss", $id, $pw);
+mysqli_stmt_execute($stmt);
 
 // 연결되어 있는 데이터베이스로 쿼리문 전달 후 결과를 반환하는 함수
-$result = mysqli_query($link, $query);
+$result = mysqli_stmt_get_result($stmt);
+// 취약$result = mysqli_query($link, $query);
 
 // SELECT 명령 후 결과 값의 행의 개수를 반환.
 $num = mysqli_num_rows($result);
