@@ -101,6 +101,60 @@ $link = care_db_connect() or die('연결 실패');
 
 $query = "INSERT INTO center(id, subject, content, date, hit, filename) ";
 $query = $query . "VALUES('$id','$subject', '$content', '$date', 0, '$upfile')";
+/*
+ * [20. 자동화 공격 방어 코드 - PDF 조치 1-2]
+ *
+ * PDF 조치 1:
+ * 로그인 시도, 게시글 등록, 본인인증 요청에 대해 횟수 제한 또는 CAPTCHA 등
+ * 일회성 확인 로직을 구현한다.
+ *
+ * 적용 위치:
+ * D:\care\center\writeModel.php
+ * DB 연결 직후, center 테이블 INSERT 전에 배치한다.
+ *
+ * 실습 전에는 취약 상태 캡처를 위해 주석으로 유지한다.
+ */
+
+/*
+$now = time();
+$postCooldown = 10;
+$clientIp = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+
+$stmt = mysqli_prepare(
+    $link,
+    "SELECT last_post_at FROM post_rate_limit WHERE id = ? AND ip = ?"
+);
+mysqli_stmt_bind_param($stmt, "ss", $id, $clientIp);
+mysqli_stmt_execute($stmt);
+$rateResult = mysqli_stmt_get_result($stmt);
+$rateRow = mysqli_fetch_assoc($rateResult);
+mysqli_stmt_close($stmt);
+
+if($rateRow){
+    $lastPostAt = (int)$rateRow['last_post_at'];
+
+    if(($now - $lastPostAt) < $postCooldown){
+        echo "<script>alert('게시글은 10초에 한 번만 등록할 수 있습니다.'); history.go(-1); </script>";
+        exit;
+    }
+
+    $stmt = mysqli_prepare(
+        $link,
+        "UPDATE post_rate_limit SET last_post_at = ? WHERE id = ? AND ip = ?"
+    );
+    mysqli_stmt_bind_param($stmt, "iss", $now, $id, $clientIp);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}else{
+    $stmt = mysqli_prepare(
+        $link,
+        "INSERT INTO post_rate_limit(id, ip, last_post_at) VALUES(?, ?, ?)"
+    );
+    mysqli_stmt_bind_param($stmt, "ssi", $id, $clientIp, $now);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+*/
 mysqli_query($link, $query);
 mysqli_close($link);
 
